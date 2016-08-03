@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wired.SlackErrors.Module", "Wired.SlackErrors.Module\Wired.SlackErrors.Module.csproj", "{9A6DD89F-4A19-49A9-A75A-16CD86A1B384}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wired.SlackErrors.Samples.Mvc", "Wired.SlackErrors.Samples.Mvc\Wired.SlackErrors.Samples.Mvc.csproj", "{AF6F0838-B5D8-4D3C-BADE-18685CB5BE2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A6DD89F-4A19-49A9-A75A-16CD86A1B384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A6DD89F-4A19-49A9-A75A-16CD86A1B384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A6DD89F-4A19-49A9-A75A-16CD86A1B384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A6DD89F-4A19-49A9-A75A-16CD86A1B384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF6F0838-B5D8-4D3C-BADE-18685CB5BE2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF6F0838-B5D8-4D3C-BADE-18685CB5BE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF6F0838-B5D8-4D3C-BADE-18685CB5BE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF6F0838-B5D8-4D3C-BADE-18685CB5BE2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
