@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wired.SlackErrors.Module", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wired.SlackErrors.Samples.Mvc", "Wired.SlackErrors.Samples.Mvc\Wired.SlackErrors.Samples.Mvc.csproj", "{AF6F0838-B5D8-4D3C-BADE-18685CB5BE2A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A4DA22CA-CF12-4C0A-8849-4ADB53709447}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
