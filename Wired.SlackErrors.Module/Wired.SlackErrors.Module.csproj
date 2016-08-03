@@ -48,11 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attachment.cs" />
+    <Compile Include="Configuration\ChannelElement.cs" />
+    <Compile Include="Configuration\ChannelElementCollection.cs" />
     <Compile Include="Interceptor.cs" />
     <Compile Include="ExceptionEventData.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SlackErrorsConfiguration.cs" />
+    <Compile Include="Configuration\SlackErrorsConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Wired.SlackErrors.Module
+namespace Wired.SlackErrors.Module.Configuration
 {
     public class SlackErrorsConfiguration : ConfigurationSection
     {
@@ -18,11 +18,11 @@ namespace Wired.SlackErrors.Module
             set { this["appName"] = value; }
         }
 
-        [ConfigurationProperty("postUrl", IsRequired = true)]
-        public string PostUrl
-        {
-            get { return (string)this["postUrl"]; }
-            set { this["postUrl"] = value; }
-        }
+        [ConfigurationProperty("channels", IsDefaultCollection = false, IsRequired = false)]
+        [ConfigurationCollection(typeof(ChannelElementCollection),
+            AddItemName = "add",
+            ClearItemsName = "clear",
+            RemoveItemName = "remove")]
+        public ChannelElementCollection Channels => (ChannelElementCollection) base["channels"];
     }
 }

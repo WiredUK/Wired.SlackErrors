@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
+using Wired.SlackErrors.Module.Configuration;
 
 namespace Wired.SlackErrors.Module
 {
@@ -35,7 +37,7 @@ namespace Wired.SlackErrors.Module
             var message = new Message
             {
                 Username = $"Website Errors [{config.ApplicationName}]",
-                Text = $"Error occurred in {config.ApplicationName} on {DateTime.UtcNow.ToString("yyyy-MM-dd hh:mm:ss")}",
+                Text = $"Error occurred in {config.ApplicationName} on {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss")}",
                 Attachments = new List<Attachment>
                 {
                     new Attachment
@@ -52,11 +54,38 @@ namespace Wired.SlackErrors.Module
                 }
             };
 
-            var postTask = client.PostAsJsonAsync(config.PostUrl, message);
-            postTask.Wait();
+            foreach (ChannelElement channel in config.Channels)
+            {
+                var postToChannel = true;
 
-            var readTask = postTask.Result.Content.ReadAsStringAsync();
-            readTask.Wait();
+                if (!string.IsNullOrEmpty(channel.TypeFilter))
+                {
+                    if (!Regex.Match(eventData.ExceptionType, channel.TypeFilter).Success)
+                    {
+                        postToChannel = false;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(channel.TraceFilter))
+                {
+                    if (!Regex.Match(eventData.ExceptionType, channel.TypeFilter).Success)
+                    {
+                        postToChannel = false;
+                    }
+                }
+
+                if (!postToChannel)
+                {
+                    continue;
+                }
+
+                var postTask = client.PostAsJsonAsync(channel.PostUrl, message);
+                postTask.Wait();
+
+                var readTask = postTask.Result.Content.ReadAsStringAsync();
+                readTask.Wait();
+            }
+
         }
 
         private static ExceptionEventData GetEventData(HttpApplication application)
