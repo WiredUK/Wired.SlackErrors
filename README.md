@@ -51,7 +51,7 @@ Both `traceFilter` and `traceFilter` use [regular expressions](https://msdn.micr
          postUrl="https://hooks.slack.com/services/..." 
          typeFilter="System\.(Sql|Application)Exception" />
 
-You can use filtering to post different exception types to different channels, so if you wanted all `SqlException` in one channel and all `ApplicationException` in another, just add two channels with specific filters:+1:
+You can use filtering to post different exception types to different channels, so if you wanted all `SqlException` in one channel and all `ApplicationException` in another, just add two channels with specific filters:
 
     <add name="Application Errors Channel" 
          postUrl="https://hooks.slack.com/services/...URL2" 
