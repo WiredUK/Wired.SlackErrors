@@ -37,7 +37,7 @@ It is possible to filter the errors that get posted, this is especially useful i
 
     <add name="Website Errors Channel" 
          postUrl="https://hooks.slack.com/services/..." 
-         typeFilter="System.NullReferenceException" />
+         typeFilter="System\.NullReferenceException" />
 
 If you want to filter on stack trace, use `traceFilter` instead:
 
@@ -45,4 +45,17 @@ If you want to filter on stack trace, use `traceFilter` instead:
          postUrl="https://hooks.slack.com/services/..." 
          traceFilter="......" />
 
-Both `traceFilter` and `traceFilter` use [regular expressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx) to match.
+Both `traceFilter` and `traceFilter` use [regular expressions](https://msdn.microsoft.com/en-us/library/system.text.regularexpressions.regex(v=vs.110).aspx) to match. So for example if you only wanted to see `SqlException` and `ApplicationException` exceptions, you can do this:
+
+    <add name="Website Errors Channel" 
+         postUrl="https://hooks.slack.com/services/..." 
+         typeFilter="System\.(Sql|Application)Exception" />
+
+You can use filtering to post different exception types to different channels, so if you wanted all `SqlException` in one channel and all `ApplicationException` in another, just add two channels with specific filters:+1:
+
+    <add name="Application Errors Channel" 
+         postUrl="https://hooks.slack.com/services/...URL2" 
+         typeFilter="System\.ApplicationException" />
+    <add name="SQL Errors Channel" 
+         postUrl="https://hooks.slack.com/services/...URL1" 
+         typeFilter="System\.SqlException" />
