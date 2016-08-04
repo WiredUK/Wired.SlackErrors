@@ -8,8 +8,7 @@ Setting up is nice and easy. First you need to get a URL from your Slack channel
 
 1.  Open up the custom integration builder from your Slack app, the URL will be something like this:
 
-        https://<your-app-name>
-    .slack.com/apps/build/custom-integration
+        https://<your-app-name>.slack.com/apps/build/custom-integration
 
 2.  Create a new _Incoming WebHook_.
 3.  Choose the channel you want to post to and click _Add_.
